@@ -10,17 +10,15 @@ for num in range(1, FILE_NUM + 1):
 	path = IN_FILEPATH + '{:0>2}'.format(num) + "." + FILETYPE
 
 	with open(path) as f:
-		s = f.read()
+		data = f.read().strip("\n")
 
-	s = s.replace("\n", "")
+	result = 0
 
-	r_num = 0
-
-	for c in s:
+	for c in data:
 		if c in PATTERN:
-			r_num += 1
+			result += 1
 
 	path = OUT_FILEPATH + '{:0>2}'.format(num) + "." + FILETYPE
 
 	with open(path, mode="w") as f:
-		f.write(str(r_num) + "\n")
+		f.write(str(result) + "\n")
