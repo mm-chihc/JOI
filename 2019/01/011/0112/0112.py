@@ -1,7 +1,9 @@
-IN_FILEPATH = "in\\"
-OUT_FILEPATH = "out\\"
+IN_FILEPATH = "in\\01-"
+OUT_FILEPATH = "out\\01-"
 FILETYPE = "txt"
 FILE_NUM = 6
+
+PATTERN = {"a", "i", "u", "e", "o"}
 
 for num in range(1, FILE_NUM + 1):
 
@@ -10,23 +12,15 @@ for num in range(1, FILE_NUM + 1):
 	with open(path) as f:
 		s = f.read()
 
-	s = s.replace("\n", "").split(' ')
+	s = s.replace("\n", "")
 
-	num1 = 0
-	num2 = 0
+	r_num = 0
 
 	for c in s:
-		if c == "1":
-			num1 += 1
-		if c == "2":
-			num2 += 1
-
-	if num1 > num2:
-		s = "1"
-	else:
-		s = "2"
+		if c in PATTERN:
+			r_num += 1
 
 	path = OUT_FILEPATH + '{:0>2}'.format(num) + "." + FILETYPE
 
 	with open(path, mode="w") as f:
-		f.write(s + "\n")
+		f.write(str(r_num) + "\n")
