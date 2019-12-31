@@ -29,14 +29,18 @@ def getMinutes(n, s, t, angle):
 	arr = np.rot90(arr, int(angle / 90))
 	arr = arr.tolist()
 
+	result = n*n - getMatch(arr, t) + ANGLE_TO_NUM[angle]
+
+	return result
+
+def getMatch(arr, t):
+
 	result = 0
 
 	for i in range(n):
 		for j in range(n):
 			if arr[i][j] == t[i][j]:
 				result += 1
-
-	result = n*n - result + ANGLE_TO_NUM[angle]
 
 	return result
 
