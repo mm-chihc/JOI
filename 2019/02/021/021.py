@@ -36,8 +36,7 @@ def getMinutes(n, s, t, angle):
 			if arr[i][j] == t[i][j]:
 				result += 1
 
-	result = n*n - result
-	result = result + ANGLE_TO_NUM[angle]
+	result = n*n - result + ANGLE_TO_NUM[angle]
 
 	return result
 
