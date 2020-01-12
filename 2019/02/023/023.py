@@ -2,7 +2,6 @@ IN_FILEPATH = "in\\01-"
 OUT_FILEPATH = "out\\01-"
 FILETYPE = "txt"
 FILE_NUM = 17
-import pdb
 
 def getData():
 	path = IN_FILEPATH + '{:0>2}'.format(num) + "." + FILETYPE
@@ -29,6 +28,5 @@ for num in range(1, FILE_NUM + 1):
 			d[i] += 1
 
 	result = sum(d)
-	print(result)
 
 	output(str(result))
